@@ -52,7 +52,7 @@
 
                    <!-- List of the contacts with their respective chats -->
                    <div class="chats-list">
-                        <div v-for="(singleContact, index) in contacts" class="single-chat">
+                        <div v-for="(singleContact, index) in contacts" class="single-chat" @click="selectChat(index)">
                             <img class="avatar-icon" :src="`img/avatar` + singleContact.avatar + `.jpg`" alt="user avatar">
                             <b>{{singleContact.name}}</b>
                         </div>
@@ -82,9 +82,10 @@
 
                     <!-- Main window of the active chat -->
                     <div class="main-chat">
-                        <div>
-                            <p v-for="singleMessage in contacts[activeElement].messages">
-                                {{ singleMessage.text }}  {{ singleMessage.status }}
+                        <div class="chat-container">
+                            <p v-for="singleMessage in contacts[activeElement].messages" class="msg-template"
+                               :class="singleMessage.status === 'sent' ? 'msg-sent': 'msg-received'">
+                                {{ singleMessage.text }}
                             </p>
                         </div>
                     </div>
