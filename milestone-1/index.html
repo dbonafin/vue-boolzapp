@@ -45,13 +45,16 @@
                         </div>
                     </div>
 
+                    <!-- Input that searches the chat that the user wants to use -->
                    <div class="search-input">
                         <input type="search" id="search-chat" placeholder="Cerca o inizia una nuova chat">
                    </div>
 
+                   <!-- List of the contacts with their respective chats -->
                    <div class="chats-list">
-                        <div v-for="singleContact in contacts" class="single-chat">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias quas optio, fuga at quis praesentium.
+                        <div v-for="(singleContact, index) in contacts" class="single-chat">
+                            <img class="avatar-icon" :src="`img/avatar` + singleContact.avatar + `.jpg`" alt="user avatar">
+                            <b>{{singleContact.name}}</b>
                         </div>
                    </div>
                     
@@ -64,8 +67,8 @@
                         <div class="upper-col">
                             <!-- User areea -->
                             <div class="user-name-avatar">
-                                <img class="avatar-icon" src="img/avatar_io.jpg" alt="user avatar">
-                                <span>Nome utente</span>
+                                <img class="avatar-icon" :src="`img/avatar` + contacts[activeElement].avatar + `.jpg`" alt="user avatar">
+                                <span>{{contacts[activeElement].name}}</span>
                             </div>
     
                             <!-- Features of the app -->
@@ -77,17 +80,16 @@
                         </div>
                     </div>
 
+                    <!-- Main window of the active chat -->
                     <div class="main-chat">
-                        <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias eligendi culpa molestias maxime voluptatibus quidem repellendus! Adipisci omnis at ex eaque fugit ullam ipsam, debitis id libero aliquid provident quam.
-                            Ducimus, inventore dolorum. Sapiente repellat accusamus ratione a vel dignissimos laborum quas beatae excepturi aliquid, voluptatum nobis nostrum. Debitis id, repellendus vel magni accusamus corporis molestiae excepturi commodi inventore rem.
-                            Placeat voluptate maxime earum atque repudiandae perspiciatis delectus nesciunt omnis distinctio fuga! Mollitia ipsa, animi quae vitae pariatur, explicabo fuga illo assumenda eum accusantium quo a officiis, repellat neque officia!
-                            Cumque corporis alias voluptates maxime pariatur assumenda dolorem magnam in minus sint deleniti sed explicabo illum at doloribus iure reprehenderit obcaecati, vero error? Animi maxime ab veniam, doloribus ipsam quas?
-                            Ducimus dignissimos illum adipisci veritatis laboriosam, deserunt incidunt accusantium? Quaerat quod fugiat nisi accusamus repudiandae maiores hic nemo nostrum, harum deleniti asperiores dicta qui provident quos atque pariatur quam labore.
-                        </p>
+                        <div>
+                            <p v-for="singleMessage in contacts[activeElement].messages">
+                                {{ singleMessage.text }}  {{ singleMessage.status }}
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- bottom part -->
+                    <!-- Bottom part - message input and features at the sides -->
                     <div class="newmessage-area icon-features">
                         <span><i class="fa-regular fa-face-smile"></i></span>
                         <input type="text" id="msg-input" placeholder="Scrivi un messaggio">

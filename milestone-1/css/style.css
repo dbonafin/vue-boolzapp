@@ -36,7 +36,6 @@ img {
     width: 80%;
     margin: 0 auto;
     height: 100%;
-    background-color: #eaeaea;
     display: flex;
     /* test */
     border: 1px solid black;
@@ -54,8 +53,9 @@ img {
 /* Aside column features */
 
 .aside-col {
-    background-color: lightblue;
+    background-color: white;
     width: 35%;
+    overflow: auto;
     /* test */
     border-right: 1px solid black;
 }
@@ -93,12 +93,16 @@ img {
 }
 
 .chats-list {
-    height: calc(100vh - 120px);
-    overflow: auto;
+    background-color: white;
 }
 
 .single-chat {
-    margin: 20px;
+    border-top: 1px solid gray;
+    padding: 10px 0;
+}
+
+.single-chat:hover {
+    background-color: lightgray;
 }
 
 /* Main column features */
@@ -134,4 +138,14 @@ img {
     background-image: url("../img/mine.jpg");
     height: calc(100vh - 120px);
     overflow: auto;
+}
+
+.msg-sent {
+    padding: 2rem;
+    background-color: green;
+}
+
+.msg-received {
+    padding: 2rem;
+    background-color: white;
 }
