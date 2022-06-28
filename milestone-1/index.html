@@ -25,6 +25,7 @@
                             <span>Nome utente</span>
                         </div>
 
+                        <!-- Features of the app -->
                         <div class="icon-features">
                             <span><i class="fa-solid fa-circle-notch"></i></span>
                             <span><i class="fa-solid fa-message"></i></span>
@@ -32,9 +33,27 @@
                         </div>
                     </div>
 
-                    <div>
-                        <!-- main part -->
+                    <!-- Alert and notifications area -->
+                    <div class="alert-area">
+                        <div class="icon-alert">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+    
+                        <div class="messages-alert">
+                            <span>Ricevi notifiche di nuovi messaggi</span> <br>
+                            <span class="underline-txt">Attiva notifiche desktop</span>
+                        </div>
                     </div>
+
+                   <div class="search-input">
+                        <input type="search" id="search-chat" placeholder="Cerca o inizia una nuova chat">
+                   </div>
+
+                   <div class="chats-list">
+                        <div v-for="singleContact in contacts" class="single-chat">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam alias quas optio, fuga at quis praesentium.
+                        </div>
+                   </div>
                     
                 </div>
 

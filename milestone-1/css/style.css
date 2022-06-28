@@ -60,6 +60,47 @@ img {
     border-right: 1px solid black;
 }
 
+.alert-area {
+    display: flex;
+    padding: 1rem;
+    background-color: #8edafc;
+}
+
+.message-alerts,.underline-txt {
+    text-decoration: underline;
+    color: #b1b1b1;
+}
+
+
+.icon-alert {
+    background-color: white;
+    color: #8edafc;
+    padding: 10px;
+    margin-right: 1rem;
+    border-radius: 30px;
+    height: 40px;
+    width: 40px;
+}
+
+.search-input {
+    background-color: #fafafa;
+}
+
+#search-chat {
+    width: 90%;
+    margin: 10px;
+    padding: 0.4rem;
+}
+
+.chats-list {
+    height: calc(100vh - 120px);
+    overflow: auto;
+}
+
+.single-chat {
+    margin: 20px;
+}
+
 /* Main column features */
 
 .main-col {
@@ -89,6 +130,7 @@ img {
 
 .main-chat {
     padding: 2rem;
+    padding-bottom: 60px;
     background-image: url("../img/mine.jpg");
     height: calc(100vh - 120px);
     overflow: auto;
