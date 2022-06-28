@@ -19,7 +19,7 @@ img {
 
 .icon-features i {
     cursor: pointer;
-    margin: 0px 10px;
+    margin-right: 0.4rem;
     color: #b1b1b1;
     font-size: 20px;
 }
@@ -65,18 +65,31 @@ img {
 .main-col {
     background-color: lightcoral;
     width: 65%;
+    position: relative;
 }
 
 .newmessage-area {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 10px 0;
+    background-color: #f3eeea;
 }
 
 .newmessage-area input {
     display: inline-block;
-    width: 70%;
+    width: 80%;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid gray;
+}
+
+.main-chat {
+    padding: 2rem;
+    background-image: url("../img/mine.jpg");
+    height: calc(100vh - 120px);
+    overflow: auto;
 }
