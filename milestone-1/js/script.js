@@ -94,6 +94,9 @@ var app = new Vue(
 			]
 		},
 		methods: {
+			selectChat(index) {
+				this.activeElement = index;
+			}
 		}
 	}
 );

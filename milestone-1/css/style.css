@@ -50,7 +50,7 @@ img {
     border-bottom: 1px solid black;
 }
 
-/* Aside column features */
+/* Aside column */
 
 .aside-col {
     background-color: white;
@@ -70,7 +70,6 @@ img {
     text-decoration: underline;
     color: #b1b1b1;
 }
-
 
 .icon-alert {
     background-color: white;
@@ -105,7 +104,7 @@ img {
     background-color: lightgray;
 }
 
-/* Main column features */
+/* Main column */
 
 .main-col {
     background-color: lightcoral;
@@ -132,6 +131,8 @@ img {
     border: 1px solid gray;
 }
 
+/* Active chat details */
+
 .main-chat {
     padding: 2rem;
     padding-bottom: 60px;
@@ -140,12 +141,25 @@ img {
     overflow: auto;
 }
 
+.chat-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.msg-template {
+    min-width: 45%;
+    max-width: 50%;
+    margin: 5px;
+    border-radius: 10px;
+}
+
 .msg-sent {
-    padding: 2rem;
-    background-color: green;
+    padding: 1rem;
+    background-color: #d5f9bb;
+    align-self: flex-end;
 }
 
 .msg-received {
-    padding: 2rem;
+    padding: 1rem;
     background-color: white;
 }
