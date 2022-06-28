@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Common */
+
+img {
+    width: 100%;
+}
+
+.avatar-icon {
+    width: 60px;
+    padding: 5px;
+    border-radius: 50px;
+    vertical-align: middle;
+}
+
+.icon-features i {
+    cursor: pointer;
+    margin: 0px 10px;
+    color: #b1b1b1;
+    font-size: 20px;
+}
+
+/* Main layout */
+
+#app-wrapper {
+    height: 100vh;
+    padding: 20px 0;
+    background-color: #009587;
+}
+
+#main-container {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    background-color: #eaeaea;
+    display: flex;
+    /* test */
+    border: 1px solid black;
+}
+
+.upper-col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    /* test */
+    border-bottom: 1px solid black;
+}
+
+/* Aside column features */
+
+.aside-col {
+    background-color: lightblue;
+    width: 35%;
+    /* test */
+    border-right: 1px solid black;
+}
+
+/* Main column features */
+
+.main-col {
+    background-color: lightcoral;
+    width: 65%;
+}
+
+.newmessage-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.newmessage-area input {
+    display: inline-block;
+    width: 70%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
