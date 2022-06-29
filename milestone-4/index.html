@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Vue boolzapp</title>
+</head>
+
+<body>
+    <div id="root">
+        <div id="app-wrapper">
+            <!-- Total app container -->
+            <div id="main-container">
+
+                <!-- Contacts list - Aside nav -->
+                <div class="aside-col">
+                    <!-- Upper part of the column -->
+                    <div class="upper-col">
+                        <div class="user-name-avatar">
+                            <img class="avatar-icon" src="../img/avatar_io.jpg" alt="user avatar">
+                            <span>Nome utente</span>
+                        </div>
+
+                        <!-- Features of the app -->
+                        <div class="icon-features">
+                            <span><i class="fa-solid fa-circle-notch"></i></span>
+                            <span><i class="fa-solid fa-message"></i></span>
+                            <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Alert and notifications area -->
+                    <div class="alert-area">
+                        <div class="icon-alert">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+    
+                        <div class="messages-alert">
+                            <span>Ricevi notifiche di nuovi messaggi</span> <br>
+                            <span class="underline-txt">Attiva notifiche desktop</span>
+                        </div>
+                    </div>
+
+                    <!-- Input that searches the chat that the user wants to use -->
+                   <div class="search-input">
+                        <input type="search" v-model="searchFilter" @keyup="filterElementsByText()" placeholder="Cerca o inizia una nuova chat">
+                   </div>
+
+                   <!-- List of the contacts with their respective chats -->
+                   <!-- This v-for shows the name/image for each contact  -->
+                   <div class="chats-list">
+                        <div v-for="(singleContact, index) in contacts" @click="selectChat(index)"
+                        class="single-chat" :class="{'active': index === activeElement, 'not-visible': singleContact.visible === false}">
+                            <img class="avatar-icon" :src="`../img/avatar` + singleContact.avatar + `.jpg`" alt="user avatar">
+                            <b>{{singleContact.name}}</b>
+                        </div>
+                   </div>
+                    
+                </div>
+
+                <!-- Active chat - Main window -->
+                <div class="main-col">
+                    <!-- Upper part of the column -->
+                    <div>
+                        <div class="upper-col">
+                            <!-- User areea -->
+                            <div class="contact-infos">
+                                <div class="user-name-avatar">
+                                    <img class="avatar-icon" :src="`../img/avatar` + contacts[activeElement].avatar + `.jpg`" alt="user avatar">
+                                </div>
+    
+                                <div class="active-user-info">
+                                    <span>{{contacts[activeElement].name}}</span>  <br>
+                                    <span class="last-access">Ultimo accesso oggi alle {{contacts[activeElement].messages.date}}</span>
+                                </div>
+                            </div>
+    
+                            <!-- Features of the app -->
+                            <div class="icon-features">
+                                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <span><i class="fa-solid fa-paperclip"></i></span>
+                                <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main window of the active chat -->
+                    <!-- This v-for shows every message for each contact (sent and received = different classes) -->
+                    <div class="main-chat">
+                        <div class="chat-container">
+                            <p v-for="singleMessage in contacts[activeElement].messages" class="msg-template"
+                               :class="singleMessage.status === 'sent' ? 'msg-sent': 'msg-received'">
+                                {{ singleMessage.text }} 
+                                <br>
+                                <span class="msg-date">{{ singleMessage.date }}</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom part - message input and features at the sides -->
+                    <div class="newmessage-area icon-features">
+                        <span><i class="fa-regular fa-face-smile"></i></span>
+
+                        <input type="text" v-model="newMessageText" @keyup.enter="sendMessage()" placeholder="Scrivi un messaggio">
+
+                        <span><i class="fa-solid fa-microphone"></i></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
