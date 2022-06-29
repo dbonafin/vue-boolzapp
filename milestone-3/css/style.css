@@ -142,7 +142,7 @@ img {
 .main-chat {
     padding: 2rem;
     padding-bottom: 60px;
-    background-image: url("../img/mine.jpg");
+    background-image: url("../../img/mine.jpg");
     height: calc(100vh - 120px);
     overflow: auto;
 }

@@ -6,7 +6,7 @@
 // Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 // Click sul contatto mostra la conversazione del contatto cliccato.
 
-// Milestone 3
+// Milestone 3 - Js Line 118 -
 // Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 // Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo..
 
@@ -116,30 +116,30 @@ var app = new Vue(
 				this.activeElement = index;
 			},
 			sendMessage() {
-				if(this.newMessageText.length != 0) {
+				 const newMessageSent =   {
+				 	date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+				 	text: this.newMessageText,
+				 	status: 'sent'
+				 };
+
+				 if(this.newMessageText.length != 0) {
+				 	this.contacts[this.activeElement].messages.push(newMessageSent);
+				 	this.newMessageText = ""; 
+				 	this.feedbackMsg();
+				}   
 				
-					const newMessageSent =   {
+			},
+			feedbackMsg() {
+				setTimeout(() => {
+					const newMessageReceived =   {
 						date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
-						text: this.newMessageText,
-						status: 'sent'
+						text: 'ok',
+						status: 'received'
 					};
 	
-					this.activeElement.messages.push(newMessageSent);
-					this.newMessageText = ""; 
-					feedbackMsg();
-				}   
-				},
-				feedbackMsg() {
-					setTimeout(() => {
-						const newMessageReceived =   {
-							date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
-							text: 'ok',
-							status: 'received'
-						};
-		
-						this.activeElement.messages.push(newMessageReceived);
-					}, 1000);
-				},
-		}
+					this.contacts[this.activeElement].messages.push(newMessageReceived);	
+				}, 1000);
+			},
+		},
 	}
 );
