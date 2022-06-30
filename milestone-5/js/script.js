@@ -115,7 +115,9 @@ var app = new Vue(
 		methods: {
 			selectChat(index) {
 				this.activeElement = index;
+				this.activeMessage = null;
 			},
+		
 			sendMessage() {
 				 const newMessageSent =   {
 				 	date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
