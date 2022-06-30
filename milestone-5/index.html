@@ -56,10 +56,15 @@
                    <!-- List of the contacts with their respective chats -->
                    <!-- This v-for shows the name/image for each contact  -->
                    <div class="chats-list">
-                        <div v-for="(singleContact, index) in contacts" @click="selectChat(index)"
-                        class="single-chat" :class="{'active': index === activeElement, 'not-visible': singleContact.visible === false}">
+                        <div 
+                            v-for="(singleContact, index) in contacts"
+                            @click="selectChat(index)"
+                            class="single-chat" 
+                            :class="{'active': index === activeElement, 'not-visible': singleContact.visible === false}">
+
                             <img class="avatar-icon" :src="`../img/avatar` + singleContact.avatar + `.jpg`" alt="user avatar">
                             <b>{{singleContact.name}}</b>
+
                         </div>
                    </div>
                     
@@ -95,15 +100,21 @@
                     <!-- This v-for shows every message for each contact (sent and received = different classes) -->
                     <div class="main-chat">
                         <div class="chat-container">
-                            <div v-for="(singleMessage,index) in contacts[activeElement].messages" class="msg-template"
-                               :class="singleMessage.status === 'sent' ? 'msg-sent': 'msg-received'">
+
+                            <div 
+                                v-for="singleMessage in contacts[activeElement].messages" 
+                                class="msg-template"
+                                :class="singleMessage.status === 'sent' ? 'msg-sent': 'msg-received'">
                                 <p>{{ singleMessage.text }} </p>
                                 <br>
                                 <span class="msg-date">{{ singleMessage.date }}</span>
 
-                                <div class="msg-options-chevron" @click="selectActiveMessage(singleMessage)">
-                                    <i class="fa-solid fa-chevron-down"></i>
+                                <div 
+                                    v-for="(singleMessage,index) in contacts[activeElement].messages" 
+                                    class="msg-options-chevron" 
+                                    @click="selectActiveMessage(index)">
 
+                                    <i class="fa-solid fa-chevron-down"></i>
                                     <div class="msg-options-menu">
                                         <div>Info</div>
                                         <div class="delete-msg" @click="removeMessage()">Delete</div>
@@ -118,7 +129,12 @@
                     <div class="newmessage-area icon-features">
                         <span><i class="fa-regular fa-face-smile"></i></span>
 
-                        <input type="text" v-model="newMessageText" @keyup.enter="sendMessage()" placeholder="Scrivi un messaggio">
+                        <input 
+                            type="text" 
+                            v-model="newMessageText" 
+                            @keyup.enter="sendMessage()" 
+                            placeholder="Scrivi un messaggio"
+                        >
 
                         <span><i class="fa-solid fa-microphone"></i></span>
                     </div>
