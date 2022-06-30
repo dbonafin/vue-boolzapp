@@ -190,6 +190,10 @@ img {
     display: block;
 }
 
+.not-visible {
+    display: none;
+}
+
 .msg-options-chevron {
     position: absolute;
     right: 0;

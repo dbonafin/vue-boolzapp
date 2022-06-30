@@ -102,22 +102,22 @@
                         <div class="chat-container">
 
                             <div 
-                                v-for="singleMessage in contacts[activeElement].messages" 
+                                v-for="(singleMessage,index) in contacts[activeElement].messages" 
                                 class="msg-template"
                                 :class="singleMessage.status === 'sent' ? 'msg-sent': 'msg-received'">
                                 <p>{{ singleMessage.text }} </p>
                                 <br>
                                 <span class="msg-date">{{ singleMessage.date }}</span>
 
-                                <div 
-                                    v-for="(singleMessage,index) in contacts[activeElement].messages" 
-                                    class="msg-options-chevron" 
-                                    @click="selectActiveMessage(index)">
+                                <div class="msg-options-chevron" @click="selectActiveMessage(index)" >
 
                                     <i class="fa-solid fa-chevron-down"></i>
-                                    <div class="msg-options-menu">
+
+                                    <div 
+                                        :class="{'visible': index === activeMessage, 'not-visible': index != activeMessage}"
+                                        class="msg-options-menu">
                                         <div>Info</div>
-                                        <div class="delete-msg" @click="removeMessage()">Delete</div>
+                                        <div class="delete-msg" @click="removeMessage(index)">Delete</div>
                                     </div>
                                 </div>
                                 

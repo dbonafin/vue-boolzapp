@@ -25,7 +25,7 @@ var app = new Vue(
 			searchFilter: "",
 			newMessageText: "",
 			activeElement: 0,
-			activeMessage: 0,
+			activeMessage: null,
 			contacts: [
 				{
 					name: 'Michele',
@@ -155,8 +155,11 @@ var app = new Vue(
 			},
 			selectActiveMessage(messageIndex) {
 				this.activeMessage = messageIndex;	
-				console.log(this.activeElement);			
-				console.log(this.activeMessage);				
+			}, 
+			removeMessage(index) {
+				if (index >= 0) { 
+					this.contacts[this.activeElement].messages.splice(this.activeMessage, 1);
+				}
 			}
 		},
 	}
