@@ -67,10 +67,10 @@
                             <div class="list-users-info">
                                 <div>
                                     <b>{{singleContact.name}}</b> <br>
-                                    <span class="last-msg-text">{{singleContact.messages[activeMessage]}}</span>
+                                    <span class="last-msg-text">{{ singleContact.messages[singleContact.messages.length - 1].text }}</span>
                                 </div>
                                 
-                                <div class="last-msg-date">{{singleContact.messages[activeMessage]}}</div>
+                                <div class="last-msg-date">{{ singleContact.messages[singleContact.messages.length - 1].date }}</div>
                             </div>
 
                             
