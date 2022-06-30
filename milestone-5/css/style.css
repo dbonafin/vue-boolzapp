@@ -97,6 +97,27 @@ img {
     border-top: 1px solid lightgray;
     padding: 10px 0;
     cursor: pointer;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.list-users-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.last-msg-text {
+    font-size: 12px;
+    color: gray;
+}
+
+.last-msg-date {
+    position: absolute;
+    right: 0;
+    padding-right: 5px;
+    font-size: 12px;
+    color: gray;
 }
 
 .active {

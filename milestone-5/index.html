@@ -63,8 +63,17 @@
                             :class="{'active': index === activeElement, 'not-visible': singleContact.visible === false}">
 
                             <img class="avatar-icon" :src="`../img/avatar` + singleContact.avatar + `.jpg`" alt="user avatar">
-                            <b>{{singleContact.name}}</b>
+                            
+                            <div class="list-users-info">
+                                <div>
+                                    <b>{{singleContact.name}}</b> <br>
+                                    <span class="last-msg-text">{{singleContact.messages[activeMessage]}}</span>
+                                </div>
+                                
+                                <div class="last-msg-date">{{singleContact.messages[activeMessage]}}</div>
+                            </div>
 
+                            
                         </div>
                    </div>
                     
@@ -83,7 +92,7 @@
     
                                 <div class="active-user-info">
                                     <span>{{contacts[activeElement].name}}</span>  <br>
-                                    <span class="last-access">Ultimo accesso oggi alle {{contacts[activeElement].messages.date}}</span>
+                                    <span class="last-access">Ultimo accesso oggi alle</span>
                                 </div>
                             </div>
     
